@@ -1,14 +1,14 @@
 package com.stocks;
-
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+//Program to display total stocks
 public class StockPortfolio extends Stock{
     public static StockPortfolio stockPortfolio =new StockPortfolio();
     public static ArrayList<Stock> stockList = new ArrayList<>();
     public double totalStockValue=0.0;
-    public static void add(){
+    public static void add(){       //Method to add stock details
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Stock name");
         stockPortfolio.setStockName(scanner.nextLine());
@@ -20,18 +20,17 @@ public class StockPortfolio extends Stock{
         stockList.add(stock);
         System.out.println(stockList);
     }
-    public static void totalStockValue(){
+    public static void totalStockValue(){       //Method to calculate total stocks
         ListIterator<Stock> iterator = stockList.listIterator();
         while (iterator.hasNext()){
             Stock stock= iterator.next();
             stockPortfolio.totalStockValue+=stock.getValueOfEachStock();
         }
     }
-    public static void display(){
+    public static void display(){               //Method to display total stocks
         totalStockValue();
         System.out.println("Total Stock value: " + stockPortfolio.totalStockValue);
     }
-
     public static void main(String[] args) {
     int flag = 1,input;
         Scanner scanner = new Scanner(System.in);
